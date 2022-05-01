@@ -1,9 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-  <groupId>br.com.renner</groupId>
-  <artifactId>renner</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+	<groupId>br.com.renner</groupId>
+	<artifactId>renner</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<name>Teste técnico Renner</name>
 	<url>http://maven.apache.org</url>
@@ -26,9 +25,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.4.2</version>
 				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>testNg.xml</suiteXmlFile>
-					</suiteXmlFiles>
+					<testSourceDirectory>renner/src/main/java</testSourceDirectory>
+					<includes>
+						<include>**/*TestRunner.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -40,10 +40,10 @@
 				<artifactId>reporty-ng</artifactId>
 				<version>1.2</version>
 				<configuration>
-				    <outputdir>/target/testng-xslt-report</outputdir>
-				    <sorttestcaselinks>true</sorttestcaselinks>
-			            <testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
-				    <showruntimetotals>true</showruntimetotals>
+					<outputdir>/target/testng-xslt-report</outputdir>
+					<sorttestcaselinks>true</sorttestcaselinks>
+					<testdetailsfilter>FAIL,SKIP,PASS,CONF,BY_CLASS</testdetailsfilter>
+					<showruntimetotals>true</showruntimetotals>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -59,6 +59,38 @@
 			<artifactId>testng</artifactId>
 			<version>6.8.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm-deps</artifactId>
+			<version>1.0.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.2.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -69,7 +101,6 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.8</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
@@ -82,5 +113,5 @@
 			<version>2.6</version>
 		</dependency>
 	</dependencies>
-	
+
 </project>
