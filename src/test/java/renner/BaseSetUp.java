@@ -16,6 +16,8 @@ public class BaseSetUp {
 	public String url = dataProvider.fetchData(configProperties, "url");
 	String modeOfExecution = dataProvider.fetchData(configProperties, "modeOfExecution");
 	String browserName = dataProvider.fetchData(configProperties, "browser");
+	public String email = dataProvider.fetchData(configProperties, "email");
+	public String password = dataProvider.fetchData(configProperties, "password");
 
 	public WebDriver getDriver() {
 		return driver;
@@ -23,6 +25,10 @@ public class BaseSetUp {
 
 	protected void setDriver() {
 		driver = browserProvider.getDriver(modeOfExecution).init(browserName);
+	}
+	
+	protected void killDriver() {
+		driver.close();
 	}
 
 }

@@ -11,14 +11,19 @@ public class HomePage extends WebActionsHelperUtils implements HomePageLocators{
 		super(driver);
 		this.driver = driver;
 	}
-	
-	public void SearchProduct(String productName) {
+		
+	public void EnterProductName(String productName) {
+		clearField(Search_box);
 		waitForElementToBeClickAble(Search_box, 10);
 		enterTextIntoElement(Search_box, productName);
 	}
 	
-	public void navigateToUrl(String url) {
-		driver.get(url);
+	public void SearchProduct() {
+		safeClick(Search_button);
+	}
+	
+	public void LoginButton() {
+		safeClick(Sign_button);
 	}
 	
 }

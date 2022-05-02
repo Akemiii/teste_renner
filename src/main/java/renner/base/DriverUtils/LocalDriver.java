@@ -14,7 +14,7 @@ public class LocalDriver implements IDriver{
 	 
 	     case "chrome":
 	        System.setProperty("webdriver.chrome.driver",
-	              "..\\renner\\driverExe\\chromedriver.exe");
+	              "src\\main\\driverExe\\chromedriver.exe");
 	        return new ChromeDriver();
 	 
 	     default:
