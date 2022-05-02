@@ -7,23 +7,29 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import renner.BaseSetUp;
 import renner.base.page.HomePage;
+import renner.base.page.LoginPage;
 import renner.base.page.ProcuraPage;
 import renner.base.page.ProdutoPage;
 
-public class Compra_steps extends BaseSetUp{
+public class Compra_steps extends BaseSetUp {
 
 	HomePage homePage;
 	ProcuraPage procuraPage;
 	ProdutoPage produtoPage;
-	
+	LoginPage loginPage;
+
 	@Given("como um cliente cadastrado no automationpractice")
 	public void como_um_cliente_cadastrado_no_automationpractice() {
-	     setDriver();
-	     homePage = new HomePage(driver);
-	     procuraPage = new ProcuraPage(driver);
-	     produtoPage = new ProdutoPage(driver);
-	     homePage.navigateToUrl(url);
-	     homePage.LoginButton();
+		setDriver();
+		homePage.navigateToUrl(url);
+		homePage = new HomePage(driver);
+		procuraPage = new ProcuraPage(driver);
+		produtoPage = new ProdutoPage(driver);
+		loginPage = new LoginPage(driver);
+		homePage.LoginButton();
+		loginPage.PreencherEmail(email);
+		loginPage.PreencherPassword(password);
+		loginPage.Logar();
 	}
 
 	@When("^eu quero fazer a compra de ao menos três produtos$")
@@ -39,13 +45,18 @@ public class Compra_steps extends BaseSetUp{
 			produtoPage.AddtoCart();
 			produtoPage.ContinueShopping();
 		}
-		
+		produtoPage.GoToCart();
+		produtoPage.Checkout();
+		produtoPage.Checkout();
+		produtoPage.TermService();
+		produtoPage.Checkout();
+		produtoPage.Payment();
+		produtoPage.ConfirmOrder();
 	}
-	
+
 	@Then("^para que eu possa estar bem vestida$")
 	public void para_que_eu_possa_estar_bem_vestida() {
-		
-		
+		produtoPage.VerifyOrder();
 		killDriver();
 	}
 

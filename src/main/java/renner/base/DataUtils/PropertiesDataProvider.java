@@ -9,7 +9,7 @@ public class PropertiesDataProvider implements IDataProvider{
 	  
 	  @Override
 	  public Object[][] fetchDataSet(String... dataFileInfo) {
-	     // TODO Auto-generated method stub
+
 	     return null;
 	  }
 	 
@@ -30,5 +30,4 @@ public class PropertiesDataProvider implements IDataProvider{
 	     dataValue = properties.getProperty(key);
 	     return dataValue;
 	  }
-	
 }
