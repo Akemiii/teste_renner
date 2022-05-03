@@ -16,9 +16,13 @@ public class Cadastro_steps extends BaseSetUp{
 	public void eu_desejo_realizar_meu_cadastro() {
 	     setDriver();
 	     cadastroPage = new CadastroPage(driver);
-	     cadastroPage.navigateToUrl(url);
+	     
 	     homePage = new HomePage(driver);
+
+	     cadastroPage.navigateToUrl(url);
+	     
 	     homePage.LoginButton();
+	     
 	     cadastroPage.PreencherEmail(email);
 	     cadastroPage.CadastrarEmail();
 	}

@@ -29,6 +29,7 @@ public class ProdutoPage extends WebActionsHelperUtils implements ProdutoPageLoc
 	public void SelectQuantity(String quantity) {
 		if (quantity == null)
 			return;		
+		clearField(Quantity_field);
 		enterTextIntoElement(Quantity_field, quantity);
 	}
 
@@ -54,6 +55,14 @@ public class ProdutoPage extends WebActionsHelperUtils implements ProdutoPageLoc
 		safeClick(Checkout);
 	}
 	
+	public void CheckoutAdress() {
+		safeClick(Checkout_adress);
+	}
+	
+	public void ProcessCarrier() {
+		safeClick(ProcessCarrier);
+	}
+	
 	public void TermService() {
 		safeClick(Term_service);
 	}
@@ -67,6 +76,6 @@ public class ProdutoPage extends WebActionsHelperUtils implements ProdutoPageLoc
 	}
 	
 	public void VerifyOrder() {
-		assertEquals("Your order on My Store is complete.", getText(Confirm_order));
+		assertEquals("Your order on My Store is complete.", getText(Complete_order));
 	}
 }

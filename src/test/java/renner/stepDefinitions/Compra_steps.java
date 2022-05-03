@@ -21,11 +21,12 @@ public class Compra_steps extends BaseSetUp {
 	@Given("como um cliente cadastrado no automationpractice")
 	public void como_um_cliente_cadastrado_no_automationpractice() {
 		setDriver();
-		homePage.navigateToUrl(url);
 		homePage = new HomePage(driver);
 		procuraPage = new ProcuraPage(driver);
 		produtoPage = new ProdutoPage(driver);
 		loginPage = new LoginPage(driver);
+
+		homePage.navigateToUrl(url);
 		homePage.LoginButton();
 		loginPage.PreencherEmail(email);
 		loginPage.PreencherPassword(password);
@@ -47,9 +48,9 @@ public class Compra_steps extends BaseSetUp {
 		}
 		produtoPage.GoToCart();
 		produtoPage.Checkout();
-		produtoPage.Checkout();
+		produtoPage.CheckoutAdress();
 		produtoPage.TermService();
-		produtoPage.Checkout();
+		produtoPage.ProcessCarrier();
 		produtoPage.Payment();
 		produtoPage.ConfirmOrder();
 	}
